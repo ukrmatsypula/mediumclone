@@ -68,7 +68,10 @@ export default {
           username: this.username,
           password: this.password,
         })
-        .then(user => console.log('successfully register user', user))
+        .then(user => {
+          console.log('successfully register user', user)
+          this.$router.push({ name: 'Home' })
+        })
     },
   },
 }
