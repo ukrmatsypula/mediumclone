@@ -7,7 +7,10 @@
           <p class="text-xs-center">
             <router-link :to="{ name: 'login' }">Need an account?</router-link>
           </p>
-          <mcv-validation-errors v-if="validationErrors" :validations-errors="validationErrors" />
+          <mcv-validation-errors
+            v-if="validationErrors"
+            :validations-errors="validationErrors"
+          />
           <form @submit.prevent="onSubmit">
             <fieldset class="form-group">
               <input
@@ -49,6 +52,7 @@
 
 <script>
 import McvValidationErrors from '@/components/ValidationErrors.vue'
+import { actionTypes } from '@/store/modules/auth.js'
 
 export default {
   name: 'McvRegister',
@@ -71,7 +75,7 @@ export default {
   methods: {
     onSubmit() {
       this.$store
-        .dispatch('register', {
+        .dispatch(actionTypes.register, {
           email: this.email,
           username: this.username,
           password: this.password,
