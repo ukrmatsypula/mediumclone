@@ -19,6 +19,7 @@ export const mutationTypes = {
 }
 
 export const actionTypes = {
+  register: '[auth] register',
   login: '[auth] login',
 }
 
