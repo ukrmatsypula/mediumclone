@@ -10,6 +10,7 @@
             >Home</router-link
           >
         </li>
+
         <template v-if="isLoggedIn">
           <li class="nav-item">
             <router-link class="nav-link" :to="{ name: 'createArticle' }">
@@ -39,6 +40,20 @@
               &nbsp;
               {{ currentUser.username }}
             </router-link>
+          </li>
+        </template>
+
+        <template v-if="!isLoggedIn">
+          <li class="nav-item">
+            <router-link class="nav-link" :to="{ name: 'login' }"
+              >Sign In</router-link
+            >
+          </li>
+
+          <li class="nav-item">
+            <router-link class="nav-link" :to="{ name: 'register' }"
+              >Sign up</router-link
+            >
           </li>
         </template>
       </ul>
