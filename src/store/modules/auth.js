@@ -5,7 +5,7 @@ const state = {
   isSubmitting: false,
   currentUser: null,
   validationErrors: null,
-  isLoggetIn: null,
+  isLoggedIn: null,
 }
 
 export const mutationTypes = {
@@ -31,7 +31,7 @@ const mutations = {
   [mutationTypes.registerSuccess](state, payload) {
     state.isSubmitting = false
     state.currentUser = payload
-    state.isLoggetIn = true
+    state.isLoggedIn = true
   },
   [mutationTypes.registerFailure](state, payload) {
     state.isSubmitting = false
@@ -45,7 +45,7 @@ const mutations = {
   [mutationTypes.loginSuccess](state, payload) {
     state.isSubmitting = false
     state.currentUser = payload
-    state.isLoggetIn = true
+    state.isLoggedIn = true
   },
   [mutationTypes.loginFailure](state, payload) {
     state.isSubmitting = false
