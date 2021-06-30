@@ -14,6 +14,6 @@ export default {
   name: 'McvApp',
   components: {
     McvTopbar,
-  }
+  },
 }
 </script>
