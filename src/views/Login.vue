@@ -61,7 +61,7 @@ export default {
   computed: {
     ...mapState({
       isSubmitting: state => state.auth.isSubmitting,
-      validationErrors: state => state.auth.validationErrors
+      validationErrors: state => state.auth.validationErrors,
     }),
   },
   methods: {
@@ -72,7 +72,7 @@ export default {
           password: this.password,
         })
         .then(() => {
-          this.$router.push({ name: 'Home' })
+          this.$router.push({ name: 'globalFeed' })
         })
     },
   },

@@ -1,7 +1,6 @@
 <template>
   <div>
     <mcv-topbar />
-    Hello medium clone
 
     <router-view />
   </div>
