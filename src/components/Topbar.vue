@@ -56,7 +56,7 @@
           </li>
         </template>
 
-        <template v-if="isAnonymus">
+        <template v-if="isAnonymous">
           <li class="nav-item">
             <router-link
               class="nav-link"
