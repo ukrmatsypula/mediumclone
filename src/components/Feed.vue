@@ -69,10 +69,10 @@ export default {
     McvPagination,
   },
   data: () => ({
-    total: 501,
+    total: 500,
     limit: 10,
     currentPage: 5,
-    url: '/tags/dragons',
+    url: '/',
   }),
   computed: {
     ...mapState({

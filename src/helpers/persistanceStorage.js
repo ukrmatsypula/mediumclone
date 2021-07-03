@@ -14,3 +14,7 @@ export const setItem = (key, data) => {
     console.log('Error saving data in localStorage', e)
   }
 }
+
+export const range = (start, end) => {
+  return [...Array(end).keys()].map(el => el + start)
+}
