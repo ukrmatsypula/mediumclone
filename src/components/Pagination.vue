@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { range } from '@/helpers/persistanceStorage'
+import { range } from '@/helpers/utils'
 
 export default {
   name: 'McvPagination',
