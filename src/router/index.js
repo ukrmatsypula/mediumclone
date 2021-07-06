@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import GlobalFeed from '@/views/GlobalFeed.vue'
+import YoueFeed from '@/views/YourFeed.vue'
 import Register from '@/views/Register.vue'
 import Login from '@/views/Login.vue'
 
@@ -25,7 +26,7 @@ const routes = [
   {
     path: '/feed',
     name: 'yourFeed',
-    component: GlobalFeed,
+    component: YoueFeed,
   },
   {
     path: '/tags/:slug',
