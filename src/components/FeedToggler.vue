@@ -14,7 +14,7 @@
         <router-link
           :to="{ name: 'globalFeed' }"
           class="nav-link"
-          :class="{ active: routeName === 'GlobalFeed' }"
+          :class="{ active: routeName === 'globalFeed' }"
         >
           Global feed
         </router-link>
