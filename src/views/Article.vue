@@ -50,7 +50,7 @@
           <div>
             <p>{{ article.body }}</p>
           </div>
-          TAGLIST
+          <mcv-tag-list :tags="article.tagList" />
         </div>
       </div>
     </div>
@@ -63,12 +63,14 @@ import { getterTypes as authGetterTypes } from '@/store/modules/auth'
 import { mapState, mapGetters } from 'vuex'
 import McvLoading from '@/components/Loading'
 import McvErrorMessage from '@/components/ErrorMessage'
+import McvTagList from '@/components/TagList'
 
 export default {
   name: 'McvArticle',
   components: {
     McvLoading,
     McvErrorMessage,
+    McvTagList,
   },
   computed: {
     ...mapState({
