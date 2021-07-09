@@ -39,7 +39,7 @@
           <h1>{{ article.title }}</h1>
           <p>{{ article.description }}</p>
           <span>Read more...</span>
-          TAG LIST
+          <mcv-tag-list :tag="['ddd']" />
         </router-link>
       </div>
       <mcv-pagination
@@ -60,6 +60,7 @@ import { limit } from '@/helpers/vars'
 import { stringify, parseUrl } from 'query-string'
 import McvLoading from '@/components/Loading'
 import McvErrorMessage from '@/components/ErrorMessage'
+import McvTagList from '@/components/TagList'
 
 export default {
   name: 'McvFeed',
@@ -73,6 +74,7 @@ export default {
     McvPagination,
     McvLoading,
     McvErrorMessage,
+    McvTagList,
   },
   data: () => ({
     limit,
