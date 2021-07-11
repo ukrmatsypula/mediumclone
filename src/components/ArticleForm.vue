@@ -3,7 +3,7 @@
     <div class="container page">
       <div class="row">
         <div class="col-md-10 offset-md-1 col-xs-12">
-          <mcv-validation-errors v-if="errors" :validations-errors="errors" />
+          <mcv-validation-errors v-if="errors" :validation-errors="errors" />
           <form @submit.prevent="onSubmit">
             <fieldset>
               <fieldset class="form-group">
@@ -14,7 +14,6 @@
                   v-model="title"
                 />
               </fieldset>
-
               <fieldset class="form-group">
                 <input
                   type="text"
@@ -23,7 +22,6 @@
                   v-model="description"
                 />
               </fieldset>
-
               <fieldset class="form-group">
                 <textarea
                   class="form-control form-control-lg"
@@ -31,7 +29,6 @@
                   v-model="body"
                 ></textarea>
               </fieldset>
-
               <fieldset class="form-group">
                 <input
                   type="text"
@@ -44,7 +41,7 @@
                 <button
                   type="submit"
                   class="btn btn-lg pull-xs-right btn-primary"
-                  :disable="isSubmitting"
+                  :disabled="isSubmitting"
                 >
                   Publish Article
                 </button>
@@ -59,12 +56,8 @@
 
 <script>
 import McvValidationErrors from '@/components/ValidationErrors'
-
 export default {
   name: 'McvArticleForm',
-  components: {
-    McvValidationErrors,
-  },
   props: {
     initialValues: {
       type: Object,
@@ -79,12 +72,17 @@ export default {
       required: true,
     },
   },
-  data: () => ({
-    title: this.initialValues.title,
-    description: this.initialValues.description,
-    body: this.initialValues.body,
-    tagList: this.initialValues.tagList.join(' '),
-  }),
+  components: {
+    McvValidationErrors,
+  },
+  data() {
+    return {
+      title: this.initialValues.title,
+      description: this.initialValues.description,
+      body: this.initialValues.body,
+      tagList: this.initialValues.tagList.join(' '),
+    }
+  },
   methods: {
     onSubmit() {
       const form = {
