@@ -105,13 +105,14 @@ export default {
   },
   methods: {
     onSubmit() {
-      console.log('submitted settings')
       this.$store.dispatch(authActionTypes.updateCurrentUser, {
         currentUserInput: this.form,
       })
     },
     logout() {
-      console.log('logout')
+      this.$store.dispatch(authActionTypes.logout).then(() => {
+        this.$router.push({ name: 'globalFeed' })
+      })
     },
   },
   mounted() {},
