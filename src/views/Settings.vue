@@ -6,7 +6,7 @@
           <h1 class="text-xs-center">Settings</h1>
           <mcv-validation-errors
             v-if="validationErrors"
-            :validation-errors="validationErrors"
+            :validations-errors="validationErrors"
           />
           <form @submit.prevent="onSubmit">
             <fieldset>
@@ -18,8 +18,54 @@
                   v-model="form.image"
                 />
               </fieldset>
+
+              <fieldset class="form-group">
+                <input
+                  type="text"
+                  class="form-control form-control-lg"
+                  placeholder="Username"
+                  v-model="form.username"
+                />
+              </fieldset>
+
+              <fieldset class="form-group">
+                <textarea
+                  class="form-control form-control-lg"
+                  placeholder="Short bio about you"
+                  v-model="form.bio"
+                />
+              </fieldset>
+
+              <fieldset class="form-group">
+                <input
+                  type="text"
+                  class="form-control form-control-lg"
+                  placeholder="Email"
+                  v-model="form.email"
+                />
+              </fieldset>
+
+              <fieldset class="form-group">
+                <input
+                  type="password"
+                  class="form-control form-control-lg"
+                  placeholder="Password"
+                  v-model="form.password"
+                />
+              </fieldset>
+              <button
+                type="submit"
+                class="btn btn-lg btn-primary pull-xs-right"
+                :disabled="isSubmitting"
+              >
+                Update settings
+              </button>
             </fieldset>
           </form>
+          <hr />
+          <button class="btn btn-outline-danger" type="text" @click="logout">
+            Or click here to logout
+          </button>
         </div>
       </div>
     </div>
@@ -28,7 +74,10 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
-import { getterTypes as authGetterTypes } from '@/store/modules/auth'
+import {
+  getterTypes as authGetterTypes,
+  actionTypes as authActionTypes,
+} from '@/store/modules/auth'
 import McvValidationErrors from '@/components/ValidationErrors'
 
 export default {
@@ -57,6 +106,12 @@ export default {
   methods: {
     onSubmit() {
       console.log('submitted settings')
+      this.$store.dispatch(authActionTypes.updateCurrentUser, {
+        currentUserInput: this.form,
+      })
+    },
+    logout() {
+      console.log('logout')
     },
   },
   mounted() {},
