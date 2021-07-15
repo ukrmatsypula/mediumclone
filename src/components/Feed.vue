@@ -31,7 +31,11 @@
             <span class="date">{{ article.createdAt }}</span>
           </div>
           <div class="pull-xs-right">
-            <mcv-add-to-favorites />
+            <mcv-add-to-favorites
+              :is-favorited="article.favorited"
+              :article-slug="article.slug"
+              :favorites-count="article.favoritesCount"
+            />
           </div>
         </div>
         <router-link
